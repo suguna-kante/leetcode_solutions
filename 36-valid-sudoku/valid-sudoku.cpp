@@ -1,0 +1,22 @@
+class Solution {
+public:
+    bool isValidSudoku(vector<vector<char>>& board) {
+        bool r[9][9] ={false};
+        bool c[9][9]={false};
+        bool b[9][9]={false};
+        for(int i=0;i<9;i++){
+            for(int j=0;j<9;j++){
+                if(board[i][j]!='.'){
+                    int num=board[i][j]-'1';
+                    int boxindex=(i/3)*3+(j/3);
+                    if(r[i][num] || c[j][num] || b[boxindex][num]) return false;
+                    r[i][num]=c[j][num] =b[boxindex][num]=true;
+                    
+                }
+            }
+        }
+        return true;
+
+        
+    }
+};
