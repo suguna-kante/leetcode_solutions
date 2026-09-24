@@ -1,25 +1,18 @@
 class Solution {
 public:
-    vector<int> twoSum(vector<int>& n, int t) {
-       vector<int>v;
-       int s=n.size();
-       int l=0;
-       int r=s-1;
-       int sum=0;
-       while(l<=r){
-        sum=n[l]+n[r];
-        if(sum==t){
-            return {l+1,r+1};
+    vector<int> twoSum(vector<int>& ns, int target) {
+        int n=ns.size();
+        int low=0,high=n-1;
+        while(low<high){
+            int mid=(ns[low]+ns[high]);
+            if(mid==target){
+                return {low+1,high+1};
+            }else if(mid<target){
+                low++;
+            }else{
+                high--;
+            }
         }
-        else if(sum>t){
-            r--;
-        }
-        else{
-            l++;
-        }
-       }
-       return {};
-
-        
+        return {-1,-1};
     }
 };
