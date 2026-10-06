@@ -9,16 +9,15 @@ public:
         v['C']=100;
         v['D']=500;
         v['M']=1000;
-        int r=0;
-        for(int i=0;i<s.length();i++){
-            if(i+1<s.length() && v[s[i]]<v[s[i+1]]){
-                r-=v[s[i]];
-            }
-            else{
-                r+=v[s[i]];
+        int sum=0;
+        for(int i=0;i<s.size();i++){
+            if(v[s[i]]<v[s[i+1]]){
+                sum-=v[s[i]];
+            }else{
+                sum+=v[s[i]];
             }
         }
-        return r;
+        return sum;
         
     }
 };
